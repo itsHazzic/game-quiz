@@ -1,0 +1,84 @@
+@import url("https://fonts.googleapis.com/css2?family=Pirata+One&display=swap");
+
+@import url("https://fonts.googleapis.com/css2?family=Silkscreen:wght@400;700&display=swap");
+
+:root {
+  background-color: #fce3c6;
+  font-size: 70%;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+h1 {
+  font-family: "Pirata One";
+  font-size: 10rem;
+  color: rgb(145, 72, 13);
+  margin-bottom: 5rem;
+}
+
+h2 {
+  font-family: "Silkscreen";
+  font-size: 5rem;
+  color: rgb(145, 72, 13);
+  margin-bottom: 5rem;
+}
+
+.btn {
+  font-size: 2rem;
+  font-family: "Silkscreen";
+  color: rgb(145, 72, 13);
+  text-decoration: none;
+  padding: 1rem 0;
+  width: 50rem;
+  text-align: center;
+  background-color: rgb(240, 172, 117);
+  border: 0.5rem solid rgb(145, 72, 13);
+  margin-bottom: 1rem;
+}
+
+.btn:hover {
+  cursor: pointer;
+  transform: translateY(-0.3rem);
+  transition: transform 100ms;
+}
+
+.btn[disabled]:hover {
+  cursor: not-allowed;
+  box-shadow: none;
+  transform: none;
+}
+
+.container {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  max-width: 80rem;
+  margin: 0 auto;
+}
+
+.flex-column {
+  display: flex;
+  flex-direction: column;
+}
+
+.flex-center {
+  justify-content: center;
+  align-items: center;
+}
+
+.justify-center {
+  justify-content: center;
+}
+
+.text-center {
+  text-align: center;
+}
+
+.hidden {
+  display: none;
+}
