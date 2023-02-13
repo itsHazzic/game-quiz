@@ -1,0 +1,42 @@
+.answer-container {
+  display: flex;
+  margin-bottom: 1rem;
+  width: 100%;
+  font-size: 2rem;
+  border: 0.5rem solid rgb(145, 72, 13);
+  background-color: rgb(240, 172, 117);
+  font-family: "Silkscreen";
+  color: rgb(145, 72, 13);
+  align-items: center;
+}
+
+.answer-letter {
+  padding: 1.5rem 2.5rem;
+  font-family: "Silkscreen";
+  background-color: rgb(145, 72, 13);
+  color: rgb(240, 172, 117);
+}
+
+.answer-text {
+  padding: 1rem;
+}
+
+.hidden {
+  display: none;
+}
+
+.btn-container {
+  margin-top: 5rem;
+}
+
+.btn-container:hover {
+  cursor: pointer;
+  transform: translateY(-0.3rem);
+  transition: transform 100ms;
+}
+
+.answer-container:hover {
+  cursor: pointer;
+  transform: translateY(-0.3rem);
+  transition: transform 100ms;
+}
