@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Input your name</title>
+    <link rel="stylesheet" href="assets/style.css" />
+  </head>
+  <body>
+    <div id="what-name-container">
+      <h3>Before you find out the best game for you, what's your name?</h3>
+    </div>
+    <form method="GET">
+      <div id="form-container">
+        <label for="user-input-name">Name:</label>
+        <input
+          type="text"
+          id="user-input-name"
+          name="user-input-name"
+          placeholder="Your Name goes here!"
+          required
+        />
+      </div>
+
+      <div class="submit-btn-container">
+        <button class="submit-btn" id="user-submit-btn" type="submit">
+          Save Name
+        </button>
+      </div>
+    </form>
+
+    <div class="btn-container" id="start-btn-container">
+      <a class="btn" id="start-btn" href="quiz.html">Start Quiz</a>
+    </div>
+
+    <div class="btn-container" id="results-home-btn-container">
+      <a class="btn" id="results-home-btn" href="/index.html">Back to home</a>
+    </div>
+  </body>
+</html>

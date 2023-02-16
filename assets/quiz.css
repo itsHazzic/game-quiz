@@ -1,3 +1,15 @@
+.container {
+  width: 100vw;
+  height: auto;
+}
+
+h2 {
+  margin-bottom: 10rem;
+  margin-top: 10rem;
+  margin-left: 3rem;
+  margin-right: 3rem;
+}
+
 .answer-container {
   display: flex;
   margin-bottom: 1rem;
@@ -26,7 +38,7 @@
 }
 
 .btn-container {
-  margin-top: 5rem;
+  /* margin: 10rem, 10rem, 10rem, 10rem; */
 }
 
 .btn-container:hover {
