@@ -1,0 +1,91 @@
+p.card-text {
+  font-family: "Silkscreen";
+}
+
+h5.card-title {
+  font-family: "Silkscreen";
+  font-size: 2rem;
+}
+
+.card {
+  background: #fce3c6;
+  border-style: solid;
+  border-color: rgb(145, 72, 13);
+  border-width: 0rem;
+  justify-content: center;
+  margin: 3rem;
+}
+
+.card-text {
+  padding: 1rem;
+  text-align: center;
+  text-justify: center;
+  font-size: 1.5rem;
+}
+
+.card-body {
+  background: rgb(255, 255, 255);
+  text-align: center;
+  text-justify: center;
+  padding: 1.5rem;
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+  background: rgb(145, 72, 13);
+  color: rgb(255, 255, 255);
+  border-style: solid;
+  border-color: rgb(255, 255, 255);
+  border-width: 0rem;
+}
+
+#pixel-cards {
+  padding: 1rem;
+  margin: 0;
+  border-width: 1rem;
+  border-color: rgb(145, 72, 13);
+  background: rgb(240, 172, 117);
+}
+
+.jumbotron {
+  background-color: #fce3c6 !important;
+}
+
+p.lead {
+  color: rgb(145, 72, 13);
+  margin: 5rem;
+  font-size: 2rem;
+}
+
+#jumbotron-1 {
+  padding: 0;
+  margin: 0;
+}
+#jumbotron-holder-1 {
+  padding: 0;
+  margin: 0;
+}
+
+/* #jumbotron-2 {
+  max-height: 40vh;
+  background: rgb(212, 110, 51) !important;
+  margin: 0;
+  padding: 0;
+}
+#jumbotron-holder-2 {
+  max-height: 40vh;
+  padding: 0;
+} */
+
+.lead {
+  font-family: "Silkscreen";
+}
+#heading-container {
+  max-height: 20vh;
+  padding-top: 15rem;
+  padding-bottom: 6rem;
+  margin: 0;
+}
+#heading-about-1 {
+  font-family: "Silkscreen";
+  font-size: 8rem;
+  color: rgb(145, 72, 13);
+}

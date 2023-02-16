@@ -3,12 +3,20 @@
 @import url("https://fonts.googleapis.com/css2?family=Silkscreen:wght@400;700&display=swap");
 
 :root {
-  background-color: #fce3c6;
+  background-color: #fce3c6 !important;
   font-size: 70%;
 }
 
+/* Allows background colour (bootstrap was applying white) to be overwritten */
+html body {
+  background-color: #fce3c6 !important;
+  margin: 0;
+  height: 100vh;
+  cursor: url(assets/arrow-157245.svg);
+}
+
 * {
-  box-sizing: border-box;
+  /* box-sizing: border-box; */
   margin: 0;
   padding: 0;
 }
@@ -24,6 +32,15 @@ h2 {
   font-size: 5rem;
   color: rgb(145, 72, 13);
   margin-bottom: 5rem;
+}
+
+h3 {
+  font-family: "Silkscreen";
+  font-size: 2rem;
+  color: rgb(145, 72, 13);
+  margin: 2rem;
+  padding: 0;
+  text-align: center;
 }
 
 .btn {
@@ -81,4 +98,149 @@ h2 {
 
 .hidden {
   display: none;
+}
+
+#pixelart-bg-img {
+  height: auto;
+  width: 100%;
+}
+
+#pixelart-bg-container {
+  width: auto;
+  height: 30vh;
+  margin: 0;
+  padding: 0;
+}
+
+.result-text {
+  font-family: "Silkscreen";
+  font-size: 1.5rem;
+}
+#user-name-input {
+  font-weight: bold;
+  font-size: 3rem;
+}
+
+#result-heading {
+  margin-top: 20rem;
+}
+
+p.result-text {
+  margin: 2rem;
+  padding: 2rem;
+}
+
+.btn-container {
+  margin-top: 7rem;
+  margin-bottom: 7rem;
+  margin-left: 2rem;
+  margin-right: 2rem;
+}
+
+.game-image-result {
+  margin: 2rem;
+  padding: 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  max-height: 40vh;
+  width: auto;
+}
+
+.game-image-container {
+  margin: 2rem;
+  padding: 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  max-height: 40vh;
+  width: auto;
+}
+
+#overall-results-container {
+  margin-top: 20rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+#user-submit-btn {
+  font-size: 2rem;
+  font-family: "Silkscreen";
+  color: rgb(145, 72, 13);
+  text-decoration: none;
+  padding: 1rem 0;
+  width: 20rem;
+  text-align: center;
+  background-color: rgb(240, 172, 117);
+  border: 0.5rem solid rgb(145, 72, 13);
+  margin-bottom: 1rem;
+}
+
+#user-submit-btn:hover {
+  cursor: pointer;
+  transform: translateY(-0.3rem);
+  transition: transform 100ms;
+}
+
+#user-submit-btn[disabled]:hover {
+  cursor: not-allowed;
+  box-shadow: none;
+  transform: none;
+}
+
+.submit-btn-container {
+  padding: 0rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+label {
+  font-size: 2rem;
+  font-family: "Silkscreen";
+  color: rgb(145, 72, 13);
+}
+
+input {
+  width: 30rem;
+  height: 7rem;
+  font-size: 2rem;
+  font-family: "Silkscreen";
+  border: 0.35rem solid rgb(145, 72, 13);
+}
+
+#form-container {
+  margin: 10rem;
+  padding: 0rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+#what-name-container {
+  margin: 10rem 10rem 15rem 10rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+#results-home-btn-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+#results-home-btn {
+  width: 20rem;
+}
+
+#start-btn-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+#start-btn {
+  width: 20rem;
 }
