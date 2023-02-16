@@ -37,10 +37,6 @@ h2 {
   display: none;
 }
 
-.btn-container {
-  /* margin: 10rem, 10rem, 10rem, 10rem; */
-}
-
 .btn-container:hover {
   cursor: pointer;
   transform: translateY(-0.3rem);
