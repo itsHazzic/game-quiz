@@ -1,22 +1,43 @@
-// Video Game Quiz Steps:
-// 1. User Selects Answers
-// -- A running total will be tallied up giving points to 'game'tags' dependant on answers
-// -- This will also add to a total score for each game, depending on the 'game tags'
-// 2. A Result is Displayed at the end based on their answers 
-// -- A Score will be averaged / given a percentage based on their result / match
-// -- Will display the game info from the Steam API
-// -- Will display the game image + completetion time from the IGDB API
+// API VARIABLES //
 
-// Functionality:
-// Only ONE answer can be given, not multiple choice
-// Have the ability to go back and forth between questions
-// Progress of the Quiz to be displayed i.e. question 1/5
-// The ability to ask for a different game if the first choice is not acceptable / show all matches
+const rawgAPIURL = "https://api.rawg.io/api";
+const rawgAPIKEY = "3b3fc2cb6d5c4511af4e74f72e1453d1";
+const openCriticURL = "https://opencritic-api.p.rapidapi.com/game";
+const openCriticAPI = {
+	method: 'GET',
+	headers: {
+		'X-RapidAPI-Key': '7e0fe5e5e5mshd694b33d2c0ada5p1f7bd3jsn1cacbc786ad5',
+		'X-RapidAPI-Host': 'opencritic-api.p.rapidapi.com'
+	}
+};
 
-    // USER VARIABLES //
+function getGameImage(gameNumber) {
+	let criticURL = `${openCriticURL}/${gameNumber}`;
+	fetch(criticURL, openCriticAPI)
+	.then(response => response.json())
+	.then(function(response) {
+		$("#game-image").attr('src', `https://img.opencritic.com/${response.images.masthead.md}`);
+	});
+}
+
+function getGameDescription(gameName) {
+	let queryURL = `${rawgAPIURL}/games/${gameName}?key=${rawgAPIKEY}`;
+	fetch(queryURL, {method: "GET"})
+	.then(function(data) {
+		return data.json()
+	})
+	.then(function(data) {
+		printDescription.innerText = data.description_raw;
+	});
+};
+
+
+// USER VARIABLES //
 
     let questionState = 0;	//Keeps track of users place in quiz
 	let quizActive = true;	//True until last question is answered
+	let gameName = "None"; //Name of resulting game
+	let gameNumber = "0"; //"Number" URL of resulting game for the Open Critic URL
 
     let userStats =	[
         0,	//Red Dead Redemption 2
@@ -156,13 +177,17 @@
                         ]
                     ];
 
-    const results = document.getElementById("results");
+    // HTML ELEMENTS //
+	
+	const results = document.getElementById("results");
 	const quiz = document.getElementById("quiz");
-	const body = document.body.style;
 	const printResult = document.getElementById("topScore");
+	const printDescription = document.getElementById("game-description");
 	const buttonElement = document.getElementById("button");
     const progressCounter = document.getElementById("progress-counter");
     const progressBarFull = document.getElementById("progress-bar-full");
+	// const submitButton = document.getElementById("submit");
+	// const initialsElement = document.getElementById("initials");
 
     
     // QUIZ FUNCTIONALITY //
@@ -188,10 +213,9 @@
 		}
 	};
 
-
     function initText(question) {	//Determines question & answer content depending on progress					
 		
-		var answerSelection = ""; //Text variable containting HTML code for the radio buttons' content
+		let answerSelection = ""; //Text variable containting HTML code for the radio buttons' content
 		
 		/* Creates radio buttons based on user progress through the quiz - current 'id' generation is not w3c compliant*/
 		
@@ -207,8 +231,6 @@
         progressBarFull.style.width = `${(questionState / 6) * 100}%`; //sets the progress bar
 	};
 
-
-	
 	function setAnswer(input) {     //When a user selects an answer, NOT when answer is submitted
 				
 		clearTempStats();		//Clear tempStats in case user reselects their answer
@@ -258,115 +280,213 @@
 		quiz.style.display = "none"; //Hides the quiz content, shows results content
 	};
 	
-
-    function displayResultPage(game) {
-        let valueAtGameIndex = userStats.at(game);
-        let percentage = ` with a ${Math.floor(((questionState) / 7) * 100)}% match`;
+    function displayResultPage(game) { //Displays the results page
+        let valueAtGameIndex = userStats.at(game); //Gets the ultimate score stat at the end from the array
+        let percentage = ` with a ${Math.floor(((valueAtGameIndex) / 7) * 100)}% match`; //Passes the score to create a percentage match
 		switch (game) {
 			
 			case 0:	//red dead redemption 2
-				results.style.display = "inline-block";
+				results.style.display = "block";
 				printResult.innerText = "Red Dead Redemption 2" + percentage;
+				gameName = "red-dead-redemption-2";
+				gameNumber = "3717";
+				getGameDescription(gameName);
+				getGameImage(gameNumber);
 				break;
 				
 			case 1:	//dark souls
 				results.style.display = "inline-block";
 				printResult.innerText = "Dark Souls" + percentage;
+				gameName = "dark-souls8482-remastered";
+				gameNumber = "5508";
+				getGameDescription(gameName);
+				getGameImage(gameNumber);
 				break;
 				
 			case 2:	//God of War 2018
 				results.style.display = "inline-block";
 				printResult.innerText = "God of War (2018)" + percentage;
+				gameName = "god-of-war-2";
+				gameNumber = "5434";
+				getGameDescription(gameName);
+				getGameImage(gameNumber);
 				break;
 				
 			case 3:	//Code Vein
 				results.style.display = "inline-block";
 				printResult.innerText = "Code Vein" + percentage;
+				gameName = "code-vein";
+				gameNumber = "8079";
+				getGameDescription(gameName);
+				getGameImage(gameNumber);
 				break;
 				
 			case 4:	//Cuphead
 				results.style.display = "inline-block";
 				printResult.innerText = "Cuphead" + percentage;
+				gameName = "cuphead";
+				gameNumber = "1792";
+				getGameDescription(gameName);
+				getGameImage(gameNumber);
 				break;
 				
 			case 5:	//Assassin's Creed Origins
 				results.style.display = "inline-block";
 				printResult.innerText = "Assassin's Creed Origins" + percentage;
+				gameName = "assassins-creed-origins";
+				gameNumber = "4503";
+				getGameDescription(gameName);
+				getGameImage(gameNumber);
 				break;
 
             case 6:	//Undertale
 				results.style.display = "inline-block";
 				printResult.innerText = "Undertale" + percentage;
+				gameName = "undertale";
+				gameNumber = "1907";
+				getGameDescription(gameName);
+				getGameImage(gameNumber);
 				break;
 
             case 7:	//Vampire: The Masquerade - Bloodlines
 				results.style.display = "inline-block";
 				printResult.innerText = "Vampire: The Masquerade - Bloodlines" + percentage;
+				gameName = "vampire-the-masquerade-bloodlines";
+				gameNumber = "10149";
+				getGameDescription(gameName);
+				getGameImage(gameNumber);
 				break;
 
             case 8:	//Resident Evil
 				results.style.display = "inline-block";
 				printResult.innerText = "Resident Evil" + percentage;
+				gameName = "resident-evil-hd-remaster";
+				gameNumber = "13934";
+				getGameDescription(gameName);
+				getGameImage(gameNumber);
 				break;
 
             case 9: //Baldur's Gate: Enhanced Edition
 				results.style.display = "inline-block";
 				printResult.innerText = "Baldur's Gate: Enhanced Edition" + percentage;
+				gameName = "baldurs-gate-enhanced-edition";
+				gameNumber = "9630";
+				getGameDescription(gameName);
+				getGameImage(gameNumber);
 				break;
 
             case 10: //stardew valley
 				results.style.display = "inline-block";
 				printResult.innerText = "Stardew Valley" + percentage;
+				gameName = "stardew-valley";
+				gameNumber = "2242";
+				getGameDescription(gameName);
+				getGameImage(gameNumber);
 				break;
 
             case 11: //no mans sky
 				results.style.display = "inline-block";
 				printResult.innerText = "No Man's Sky" + percentage;
+				gameName = "no-mans-sky";
+				gameNumber = "2393";
+				getGameDescription(gameName);
+				getGameImage(gameNumber);
 				break;
 
             case 12: //mass effect 2
 				results.style.display = "inline-block";
 				printResult.innerText = "Mass Effect 2" + percentage;
+				gameName = "mass-effect-2";
+				gameNumber = "11290";
+				getGameDescription(gameName);
+				getGameImage(gameNumber);
 				break;
 
             case 13: //Final Fantasy X
 				results.style.display = "inline-block";
 				printResult.innerText = "Final Fantasy X" + percentage;
+				gameName = "final-fantasy-xx-2-hd-remaster";
+				gameNumber = "21";
+				getGameDescription(gameName);
+				getGameImage(gameNumber);
 				break;
 
             case 14: //The Elder Scrolls V: Skyrim
 				results.style.display = "inline-block";
 				printResult.innerText = "The Elder Scrolls V: Skyrim" + percentage;
+				gameName = "the-elder-scrolls-v-skyrim";
+				gameNumber = "5111";
+				getGameDescription(gameName);
+				getGameImage(gameNumber);
 				break;
 
             case 15: //fallout 3
 				results.style.display = "inline-block";
 				printResult.innerText = "Fallout 3" + percentage;
+				gameName = "fallout-3";
+				gameNumber = "6227";
+				getGameDescription(gameName);
+				getGameImage(gameNumber);
 				break;
 
             case 16: //left 4 dead
 				results.style.display = "inline-block";
 				printResult.innerText = "Left 4 Dead" + percentage;
+				gameName = "left-4-dead";
+				getGameDescription(gameName);
 				break;
 
             case 17: //overcooked 2
 				results.style.display = "inline-block";
 				printResult.innerText = "Overcooked! 2" + percentage;
+				gameName = "overcooked-2";
+				gameNumber = "6225";
+				getGameDescription(gameName);
+				getGameImage(gameNumber);
 				break;
 
             case 18: //Sid Meier's Civilization V
 				results.style.display = "inline-block";
 				printResult.innerText = "Sid Meier's Civilization V" + percentage;
+				gameName = "civilization-v";
+				getGameDescription(gameName);
 				break;
 
             case 19: //sonic generations
 				results.style.display = "inline-block";
 				printResult.innerText = "Sonic Generations" + percentage;
+				gameName = "sonic-generations";
+				getGameDescription(gameName);
 				break;
 				
 			default: 
 				document.getElementById("error").style.display = "inline-block";
-
-		}
+		};
 	};
-	
+
+	// function saveGame() {
+	// 	let initials = initialsElement.value.trim();
+
+	// 	if(initials !== "") {
+	// 		let savedGames = JSON.parse(localStorage.getItem("savedgames")) || [];
+	// 		let newGame = {
+	// 			gameName: game,
+	// 			initials: initials
+	// 		}
+
+	// 		savedGames.push(newGame);
+	// 		localStorage.setItem("savedgames", JSON.stringify(savedGames));
+
+	// 		window.location.href = "savedgames.html";
+	// 	}
+	// };
+
+	// function checkForEnter(event) {
+	// 	if(event.key === "Enter") {
+	// 		saveGame();
+	// 	}
+	// };
+
+	// submitButton.addEventListener("click", saveGame);
+
+	// initialsElement.addEventListener("keyup", checkForEnter);
