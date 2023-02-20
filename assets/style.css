@@ -244,3 +244,63 @@ input {
 #start-btn {
   width: 20rem;
 }
+
+#overall-results-container {
+    margin-top: 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#results {
+	display: none;
+}
+
+#result-heading {
+    margin-top: 20rem;
+    font-weight: bold;
+}
+
+.result-heading-2 {
+    font-weight: bold;
+}
+
+.result-text {
+    font-family: "Silkscreen";
+    font-size: 1.5rem;
+}
+
+.result-text {
+    font-family: "Silkscreen";
+    font-size: 1.5rem;
+}
+
+p.result-text {
+    margin: 2rem;
+    padding: 2rem;
+}
+
+.game-image-result {
+    margin: 2rem;
+    padding: 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    max-height: 40vh;
+    width: auto;
+}
+
+#results-home-btn-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+#results-home-btn {
+    width: 20rem;
+}
+
+#home {
+  height: auto;
+  margin-top: 30rem;
+}

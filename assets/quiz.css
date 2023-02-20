@@ -1,50 +1,84 @@
+#quiz {
+    display: none;
+}
+
 .container {
-  width: 100vw;
-  height: auto;
+    width: 100vw;
+    height: auto;
 }
 
 h2 {
-  margin-bottom: 10rem;
-  margin-top: 10rem;
-  margin-left: 3rem;
-  margin-right: 3rem;
+    margin-bottom: 10rem;
+    margin-top: 10rem;
+    margin-left: 3rem;
+    margin-right: 3rem;
 }
 
-.answer-container {
-  display: flex;
-  margin-bottom: 1rem;
-  width: 100%;
-  font-size: 2rem;
-  border: 0.5rem solid rgb(145, 72, 13);
-  background-color: rgb(240, 172, 117);
-  font-family: "Silkscreen";
-  color: rgb(145, 72, 13);
-  align-items: center;
+#question-text {
+    font-weight: bold;
 }
 
-.answer-letter {
-  padding: 1.5rem 2.5rem;
-  font-family: "Silkscreen";
-  background-color: rgb(145, 72, 13);
-  color: rgb(240, 172, 117);
+#answers {
+    list-style-type: none;
 }
 
-.answer-text {
-  padding: 1rem;
+#answers li {
+    width: 100%;
+    font-size: 2rem;
+    font-family: "Silkscreen";
+    color: rgb(145, 72, 13);
+    align-items: center;
+    padding: 1rem;
 }
 
+#answers input[type="radio"] {
+	opacity: 0.011;
+	z-index: 100;
+}
+
+#answers input[type="radio"]:checked + label {
+	opacity: 1;
+}
+
+#answers label {
+    float: left;
+	padding: 5px;
+    border: 0.5rem solid rgb(145, 72, 13);
+    background-color: rgb(240, 172, 117);
+	cursor: pointer;
+	z-index: 90;
+	opacity: 0.7;
+	transition: opacity 0.2s linear;
+}
+
+#answers label:hover {
+	opacity: 1;
+    cursor: pointer;
+    transform: translateY(-0.3rem);
+    transition: transform 100ms;
+}
+  
 .hidden {
-  display: none;
+    display: none;
 }
-
+  
 .btn-container:hover {
-  cursor: pointer;
-  transform: translateY(-0.3rem);
-  transition: transform 100ms;
+    cursor: pointer;
+    transform: translateY(-0.3rem);
+    transition: transform 100ms;
 }
 
-.answer-container:hover {
-  cursor: pointer;
-  transform: translateY(-0.3rem);
-  transition: transform 100ms;
+#progress-bar {
+    display: flex;
+    width: 350px;
+    height: 50px;
+    border: 0.5rem solid rgb(145, 72, 13);
+    margin-bottom: 3rem;
+}
+
+#progress-bar-full {
+    height: 40px;
+    background-color: rgb(240, 172, 117);
+    width: 0%;
+    margin-bottom: 3rem;
 }
