@@ -179,22 +179,26 @@ function getGameDescription(gameName) {
 
     // HTML ELEMENTS //
 	
+	const home = document.getElementById("home");
 	const results = document.getElementById("results");
 	const quiz = document.getElementById("quiz");
 	const printResult = document.getElementById("topScore");
 	const printDescription = document.getElementById("game-description");
-	const buttonElement = document.getElementById("button");
+	const startQuizButton = document.getElementById("quiz-button");
+	const buttonElement = document.getElementById("q-button");
     const progressCounter = document.getElementById("progress-counter");
     const progressBarFull = document.getElementById("progress-bar-full");
-	// const submitButton = document.getElementById("submit");
-	// const initialsElement = document.getElementById("initials");
 
     
     // QUIZ FUNCTIONALITY //
 
-    buttonElement.addEventListener("click", changeState);	//Add click event listener to main button
+    startQuizButton.addEventListener("click", changeState);	//Add click event listener to main button
+	buttonElement.addEventListener("click", changeState);	
 	
 	function changeState() {	//Progresses the user through the quiz						
+		
+		home.style.display = "none";
+		quiz.style.display = "initial";
 		
 		updateGameStats(); 	//Adds the values of the tempStats to the userStats										
 		
@@ -225,7 +229,7 @@ function getGameDescription(gameName) {
 			(question+1) + "' onClick='setAnswer("+i+")' id='" + answerText[question][i] + "'><label for='" + answerText[question][i] + "'>" + answerText[question][i] + "</label></li>";
 		}
 		
-		document.getElementById("questions").innerHTML = questionText[question];	//set question text
+		document.getElementById("question-text").innerHTML = questionText[question];	//set question text
 		document.getElementById("answers").innerHTML = answerSelection; //set answer text
         progressCounter.innerText = Math.floor(((questionState) / 6) * 100) + "%";	//sets the progress counter
         progressBarFull.style.width = `${(questionState / 6) * 100}%`; //sets the progress bar
@@ -282,7 +286,7 @@ function getGameDescription(gameName) {
 	
     function displayResultPage(game) { //Displays the results page
         let valueAtGameIndex = userStats.at(game); //Gets the ultimate score stat at the end from the array
-        let percentage = ` with a ${Math.floor(((valueAtGameIndex) / 7) * 100)}% match`; //Passes the score to create a percentage match
+        let percentage = ` with a ${Math.floor(((valueAtGameIndex) / 7) * 100)}% match!`; //Passes the score to create a percentage match
 		switch (game) {
 			
 			case 0:	//red dead redemption 2
@@ -292,6 +296,7 @@ function getGameDescription(gameName) {
 				gameNumber = "3717";
 				getGameDescription(gameName);
 				getGameImage(gameNumber);
+				localStorage.setItem("mostRecentGame", gameName);
 				break;
 				
 			case 1:	//dark souls
@@ -301,6 +306,7 @@ function getGameDescription(gameName) {
 				gameNumber = "5508";
 				getGameDescription(gameName);
 				getGameImage(gameNumber);
+				localStorage.setItem("mostRecentGame", gameName);
 				break;
 				
 			case 2:	//God of War 2018
@@ -310,6 +316,7 @@ function getGameDescription(gameName) {
 				gameNumber = "5434";
 				getGameDescription(gameName);
 				getGameImage(gameNumber);
+				localStorage.setItem("mostRecentGame", gameName);
 				break;
 				
 			case 3:	//Code Vein
@@ -319,6 +326,7 @@ function getGameDescription(gameName) {
 				gameNumber = "8079";
 				getGameDescription(gameName);
 				getGameImage(gameNumber);
+				localStorage.setItem("mostRecentGame", gameName);
 				break;
 				
 			case 4:	//Cuphead
@@ -328,6 +336,7 @@ function getGameDescription(gameName) {
 				gameNumber = "1792";
 				getGameDescription(gameName);
 				getGameImage(gameNumber);
+				localStorage.setItem("mostRecentGame", gameName);
 				break;
 				
 			case 5:	//Assassin's Creed Origins
@@ -337,6 +346,7 @@ function getGameDescription(gameName) {
 				gameNumber = "4503";
 				getGameDescription(gameName);
 				getGameImage(gameNumber);
+				localStorage.setItem("mostRecentGame", gameName);
 				break;
 
             case 6:	//Undertale
@@ -346,6 +356,7 @@ function getGameDescription(gameName) {
 				gameNumber = "1907";
 				getGameDescription(gameName);
 				getGameImage(gameNumber);
+				localStorage.setItem("mostRecentGame", gameName);
 				break;
 
             case 7:	//Vampire: The Masquerade - Bloodlines
@@ -355,6 +366,7 @@ function getGameDescription(gameName) {
 				gameNumber = "10149";
 				getGameDescription(gameName);
 				getGameImage(gameNumber);
+				localStorage.setItem("mostRecentGame", gameName);
 				break;
 
             case 8:	//Resident Evil
@@ -364,6 +376,7 @@ function getGameDescription(gameName) {
 				gameNumber = "13934";
 				getGameDescription(gameName);
 				getGameImage(gameNumber);
+				localStorage.setItem("mostRecentGame", gameName);
 				break;
 
             case 9: //Baldur's Gate: Enhanced Edition
@@ -373,6 +386,7 @@ function getGameDescription(gameName) {
 				gameNumber = "9630";
 				getGameDescription(gameName);
 				getGameImage(gameNumber);
+				localStorage.setItem("mostRecentGame", gameName);
 				break;
 
             case 10: //stardew valley
@@ -382,6 +396,7 @@ function getGameDescription(gameName) {
 				gameNumber = "2242";
 				getGameDescription(gameName);
 				getGameImage(gameNumber);
+				localStorage.setItem("mostRecentGame", gameName);
 				break;
 
             case 11: //no mans sky
@@ -391,6 +406,7 @@ function getGameDescription(gameName) {
 				gameNumber = "2393";
 				getGameDescription(gameName);
 				getGameImage(gameNumber);
+				localStorage.setItem("mostRecentGame", gameName);
 				break;
 
             case 12: //mass effect 2
@@ -400,6 +416,7 @@ function getGameDescription(gameName) {
 				gameNumber = "11290";
 				getGameDescription(gameName);
 				getGameImage(gameNumber);
+				localStorage.setItem("mostRecentGame", gameName);
 				break;
 
             case 13: //Final Fantasy X
@@ -409,6 +426,7 @@ function getGameDescription(gameName) {
 				gameNumber = "21";
 				getGameDescription(gameName);
 				getGameImage(gameNumber);
+				localStorage.setItem("mostRecentGame", gameName);
 				break;
 
             case 14: //The Elder Scrolls V: Skyrim
@@ -418,6 +436,7 @@ function getGameDescription(gameName) {
 				gameNumber = "5111";
 				getGameDescription(gameName);
 				getGameImage(gameNumber);
+				localStorage.setItem("mostRecentGame", gameName);
 				break;
 
             case 15: //fallout 3
@@ -427,6 +446,7 @@ function getGameDescription(gameName) {
 				gameNumber = "6227";
 				getGameDescription(gameName);
 				getGameImage(gameNumber);
+				localStorage.setItem("mostRecentGame", gameName);
 				break;
 
             case 16: //left 4 dead
@@ -434,6 +454,7 @@ function getGameDescription(gameName) {
 				printResult.innerText = "Left 4 Dead" + percentage;
 				gameName = "left-4-dead";
 				getGameDescription(gameName);
+				localStorage.setItem("mostRecentGame", gameName);
 				break;
 
             case 17: //overcooked 2
@@ -443,6 +464,7 @@ function getGameDescription(gameName) {
 				gameNumber = "6225";
 				getGameDescription(gameName);
 				getGameImage(gameNumber);
+				localStorage.setItem("mostRecentGame", gameName);
 				break;
 
             case 18: //Sid Meier's Civilization V
@@ -450,6 +472,7 @@ function getGameDescription(gameName) {
 				printResult.innerText = "Sid Meier's Civilization V" + percentage;
 				gameName = "civilization-v";
 				getGameDescription(gameName);
+				localStorage.setItem("mostRecentGame", gameName);
 				break;
 
             case 19: //sonic generations
@@ -457,6 +480,7 @@ function getGameDescription(gameName) {
 				printResult.innerText = "Sonic Generations" + percentage;
 				gameName = "sonic-generations";
 				getGameDescription(gameName);
+				localStorage.setItem("mostRecentGame", gameName);
 				break;
 				
 			default: 
@@ -464,29 +488,29 @@ function getGameDescription(gameName) {
 		};
 	};
 
-	// function saveGame() {
-	// 	let initials = initialsElement.value.trim();
 
-	// 	if(initials !== "") {
-	// 		let savedGames = JSON.parse(localStorage.getItem("savedgames")) || [];
-	// 		let newGame = {
-	// 			gameName: game,
-	// 			initials: initials
-	// 		}
+const username = document.getElementById('username');
+const saveGameBtn = document.getElementById('saveGameBtn');
+const mostRecentGame = localStorage.getItem('mostRecentGame');
 
-	// 		savedGames.push(newGame);
-	// 		localStorage.setItem("savedgames", JSON.stringify(savedGames));
+console.log(mostRecentGame);
 
-	// 		window.location.href = "savedgames.html";
-	// 	}
-	// };
+const savedGames = JSON.parse(localStorage.getItem("savedGames")) || [];
 
-	// function checkForEnter(event) {
-	// 	if(event.key === "Enter") {
-	// 		saveGame();
-	// 	}
-	// };
+const MAX_SAVED_GAMES = 5;
 
-	// submitButton.addEventListener("click", saveGame);
+username.addEventListener('keyup', () => {
+    saveGameBtn.disabled = !username.value;
+});
 
-	// initialsElement.addEventListener("keyup", checkForEnter);
+function saveGameName() {
+    const gameName = {
+        gameName: mostRecentGame,
+        name: username.value,
+    };
+    savedGames.push(gameName);
+
+    localStorage.setItem('savedGames', JSON.stringify(savedGames));
+};
+
+console.log(gameName);
