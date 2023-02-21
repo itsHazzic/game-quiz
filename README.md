@@ -32,6 +32,8 @@ https://github.com/itsHazzic/game-quiz
 
 To view the presentation on the project, go to the following link:
 
+https://youtu.be/1kmXQ3gTivg
+
 ### How to use the application
 
 Open opening the application, you will be presented with the index (or home) page of the application, as shown:
